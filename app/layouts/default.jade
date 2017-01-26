@@ -51,14 +51,14 @@ head
                   li
                     a(href='#') Blog
     
-
-    block content
+    .main-wrap
+      block content
 
     
     footer.footer
-      .container
+      .container-fluid
         .row
-          .col-xs-6
+          .col-md-8.col-sm-9.col-xs-12.copy-col
             small.copy
               span SmartUp.io, LTD &copy; 2017
               span
@@ -68,10 +68,12 @@ head
               span
                 a(href='terms_and_services.html') Terms of Service
               span
-                a(href='#0') Teams
+                a(href='team.html') Teams
               span
                 a(href='contact.html') Contact
-          .col-xs-6
+              span
+                a(href='contact.html') Press
+          .col-md-4.col-sm-3.col-xs-12.social-col
             ul.social
               li
                 a(href='#0')

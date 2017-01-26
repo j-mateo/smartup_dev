@@ -1,4 +1,7 @@
 $icon-font-path: '../fonts/';
+@import "vars";
+@import "typo";
+@import "helpers";
 
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
@@ -8,78 +11,6 @@ $icon-font-path: '../fonts/';
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
-}
-
-// =============================================================================
-// String Replace
-// =============================================================================
-
-@function str-replace($string, $search, $replace: "") {
-	$index: str-index($string, $search);
-
-	@if $index {
-		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-	}
-
-	@return $string;
-}
-
-// =============================================================================
-// Font Face
-// =============================================================================
-
-@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
-	$src: null;
-
-	$extmods: (
-		eot: "?",
-		svg: "#" + str-replace($name, " ", "_")
-	);
-
-	$formats: (
-		otf: "opentype",
-		ttf: "truetype"
-	);
-
-	@each $ext in $exts {
-		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
-		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
-		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
-	}
-
-	@font-face {
-		font-family: quote($name);
-		font-style: $style;
-		font-weight: $weight;
-		src: $src;
-	}
-}
-
-// @include font-face('Hurme - HurmeGeometricSans1 SemiBold', './fonts/Hurme_HurmeGeometricSans1_SemiBold');
-
-@font-face {
-  font-family: "Hurme_HurmeGeometricSans1_SemiBold";
-  src: url("../fonts/Hurme_HurmeGeometricSans1_SemiBold.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Hurme - HurmeGeometricSans1 Regular";
-  src: url("../fonts/Hurme - HurmeGeometricSans1 Regular.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Hurme - HurmeGeometricSans1 Bold";
-  src: url("../fonts/Hurme - HurmeGeometricSans1 Bold.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Hurme - HurmeGeometricSans1 Light";
-  src: url("../fonts/Hurme - HurmeGeometricSans1 Light.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "Hurme - HurmeGeometricSans2 SemiBold";
-  src: url("../fonts/Hurme - HurmeGeometricSans2 SemiBold.otf") format("opentype");
 }
 
 video {
@@ -94,27 +25,6 @@ video {
 
 // .container-fluid {
 //   background: purple;
-// }
-
-// colors
-$footer_bg: #303C49;
-$bright_blue: #1EB4DE;
-$bright_gray: #E2E4E6;
-$white: #fff;
-$black: #000;
-$carousel_indicator_active: #00A8D8;
-$carousel_indicator: #86858E;
-$footer_gray: $carousel_indicator;
-$indicator_active: #393f4b;
-
-// constants
-$header_height: 70px;
-$footer_height: 60px;
-
-/* Space out content a bit */
-// body {
-//   padding-top: 20px;
-//   padding-bottom: 20px;
 // }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -163,24 +73,6 @@ p {
 
 .container-narrow > hr {
   margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  padding: 110px 0;
-  text-align: center;
-  // border-bottom: 1px solid #e5e5e5;
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-  .cbtn {
-    padding: 13px 35px;
-    text-transform: uppercase;
-  }
-  .row-flex {
-    align-items: center;
-  }
 }
 
 .sub-hero {
@@ -262,18 +154,6 @@ p {
   padding: 50px 0;
 }
 
-.find-us {
-  padding: 80px 0;
-  p {
-    font-size: 3.5rem;
-    margin-bottom: 25px;
-  }
-  .cbtn {
-    padding: 10px 70px;
-    text-transform: uppercase;
-  }
-}
-
 .marketing-business {
   padding: 20px 0;
   h3 {
@@ -285,7 +165,7 @@ p {
 
 .marketing-business,
 .marketing-bottom,
-.find-us {
+.blue-tier {
   background: $bright_blue;
   color: $white;
 }
@@ -297,7 +177,7 @@ p {
 
 .feature-icon-wrap,
 .marketing,
-.find-us {
+.blue-tier {
   text-align: center;
 }
 
@@ -309,9 +189,13 @@ p {
   list-style: none;
   text-align: right;
   margin-bottom: 0;
+  margin-left: 0;
   li {
     display: inline-block;
     margin-left: 15px;
+    @media screen and (max-width: $screen-md) {
+      margin-left: 0;
+    }
   }
   .fa {
     color: $footer_bg;
@@ -324,6 +208,27 @@ p {
     &:hover {
       background: $white;
     }
+  }
+}
+
+@media screen and (max-width: $screen-sm) {
+  .copy-col, .social-col {
+    text-align: center;
+  }
+  .social-col {
+    background: $footer_bg;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .copy, .social {
+    display: inline-block;
+  }
+  .footer {
+    position: static;
+    height: auto;
+  }
+  .main-wrap {
+    padding-bottom: 60px;
   }
 }
 
@@ -346,6 +251,7 @@ p {
 .btn-dark {
   background: $footer_bg;
   color: $white;
+  border: none;
   &:focus, &:hover {
     text-decoration: none;
     color: $bright_blue;
@@ -385,202 +291,22 @@ p {
   float: right;
 }
 
-// TYpography
-body {
-  font-family: "Hurme - HurmeGeometricSans1 Regular", sans-serif;
-}
-
-.jumbotron h1,
-.jumbatron p.lead,
-.jumbatron small,
-.features h3,
-.price-cost,
-.price-title,
-.order-btn {
-  font-family: "Hurme_HurmeGeometricSans1_SemiBold", sans-serif;
-}
-
-.price-cost {
-  font-size: 42px;
-  color: $black;
-}
-
-.features h3 {
-  font-size: 4rem;
-  color: $footer_bg;
-}
-
-.features {
-  padding: 140px 0 220px;
-}
-
-.jumbotron h1 {
-  font-size: 56px;
-  color: $footer_bg;
-}
-
-.carousel-col h4 {
-  font-family: "Hurme - HurmeGeometricSans1 Bold", sans-serif;
-}
-
-.jumbotron {
-  small {
-    font-size: 10px;
-    letter-spacing: 1px;
-  }
-  p {
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-  .cbtn {
-    margin-bottom: 20px;
-  }
-  footer {
-    position: static;
-  }
-}
-
-.business-item p {
-  font-size: 16px;
-}
-
-.business-item {
-  border-bottom: 1px solid #AEACB2;
-  padding-top: 60px;
-  &.last {
-    border-bottom: none;
-  }
-}
-
-.features-intro {
-  padding: 40px 0 140px 0;
-}
-
-.marketing-peer p {
-  font-size: 4rem;
-  font-family: "Hurme - HurmeGeometricSans1 Light", sans-serif;;
-}
-// TYpography
-
-.jumbotron.jumbotron-learning {
-  background-image: url(../images/hero-learning.png);
-}
-
-.jumbotron.jumbotron-recuiting {
-  background-image: url(../images/hero-recruiting.png);
-}
-
-.jumbotron.jumbotron-innovation {
-  background-image: url(../images/hero-innovation.png);
-}
-
-.jumbotron {
-  background-image: url(../images/hero-home.png);
-  background-color: transparent;
-  color: $white;
-  background-size: cover;
-  position: relative;
-  margin-bottom: 0;
-  text-align: left;
-  // padding-top: 200px;
-  // padding-bottom: 60px;
-  // &:after {
-  //   content: "";
-  //   background: rgba(0, 149, 213, .7);
-  //   z-index: 2;
-  //   position: absolute;
-  // }
-  &:after,
-  .jumbotron-inner {
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-  }
-  .jumbotron-inner {
-    position: relative;
-    z-index: 3;
-  }
-  .col-flex {
-    text-align: center;
-    width: 100%; 
-  }
-}
-
-.jumbotron-inner h2 {
-  margin-top: 0;
-  margin-bottom: 25px;
-}
-
-h1.jumbotron-title {
-  position: relative;
-  margin-bottom: 5px;
-  margin-top: 0;
-  color: $white;
-  // &:after {
-  //   content: " ";
-  //   position: absolute;
-  //   background: url(../images/circles.svg) no-repeat;
-  //   height: 250px;
-  //   width: 250px;
-  //   background-size: cover;
-  //   top: -150px;
-  //   margin-left: -60px;
-  // }
-}
-
-.img-carousel {
-  background: $footer_bg;
-  padding-top: 20px;
-  padding-bottom: 30px;
-}
-
-.img-carousel .row {
-  margin-bottom: 15px;
-}
-
-.carousel-col {
-  img {
-    border-radius: 5px;
-    vertical-align: text-bottom;
-  }
-  h4 {
-    margin-top: 0;
-  }
-}
-
-.carousel-col-footer {
-  background: $white;
-  border-radius: 0 0 5px 5px;
-  margin-top: -3px;
-  padding-top: 13px;
-  padding-bottom: 10px;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-
-.carousel-indicators {
-  bottom: -30px;
-}
-
-.carousel-indicators li {
-  // height: 7px;
-  // width: 7px;
-}
-
-.carousel-indicators .active {
-  background-color: $indicator_active;
-  border-color: $indicator_active;
-}
-
-.carousel-indicators li {
-  background-color: $carousel_indicator;
-  border-color: $carousel_indicator;
-}
-
 .header {
   height: $header_height;
   margin-bottom: 0;
+  position: fixed;
+  width: 100%;
+  padding: 0 15px;
+  z-index: 50;
+  background: $white;
+}
+
+.navbar.nav-wrap {
+  margin-right: -15px;
+}
+
+.main-wrap {
+  padding-top: $header_height;
 }
 
 .login-box {
@@ -672,15 +398,6 @@ h1.text-muted {
   min-height: 300px;
 }
 
-.carousel-replacment {
-  padding: 50px 0 30px 0;
-  .row-flex {
-    min-height: auto;
-    margin-bottom: 20px;
-    align-items: center;
-  }
-}
-
 .col-flex {
   width: 50%;
   padding: 0 15px;
@@ -692,11 +409,6 @@ h1.text-muted {
   p {
     margin-bottom: 20px;
   }
-}
-
-.carousel {
-  max-width: 1300px;
-  margin: auto;
 }
 
 .community-find-link {
@@ -732,111 +444,6 @@ h1.text-muted {
       max-width: 300px;
     }
   }
-}
-
-// Pricing
-.pricing {
-  padding: 70px 0 50px 0;
-}
-
-.price-inner {
-  border-radius: 12px;
-}
-
-.price-header-wrap {
-  // background: $footer_bg;
-  color: $black;
-  margin-left: -2px;
-  margin-right: -2px;
-  border-radius: 12px 12px 0 0;
-  margin-top: -10px;
-}
-
-.highlighted .price-header-wrap {
-  background: $bright_blue;
-}
-
-.price-header {
-  padding-left: 50%;
-  margin-left: -80px;
-  padding-top: 50px;
-}
-
-.price-value {
-  border: 3px solid #10b6fe;
-  border-radius: 50%;
-  width: 160px;
-  height: 160px;
-  margin: auto;
-  text-align: center;
-  line-height: 25px;
-  font-size: 16px;
-  display: table-cell;
-  vertical-align: middle;
-  color: $black;
-}
-
-.price-list li {
-  border-bottom: 2px solid #dfe5e8;
-  border-left: 2px solid #dfe5e8;
-  border-right: 2px solid #dfe5e8;
-  padding: 10px 10px;;
-}
-
-.price-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background: $white;
-  color: #5f727f;
-  text-align: center;
-}
-
-.price-crossed {
-  text-decoration: line-through;
-  color: #99a9b5;
-}
-
-.price-title {
-  text-align: center;
-  color: $white;
-  padding-top: 17px;
-  padding-bottom: 23px;
-  font-size: 18px;
-}
-
-.order-btn  {
-  display: inline-block;
-  text-align: center;
-  background-color: $footer_bg;
-  color: $white;
-  border-radius: 10px;
-  line-height: 40px;
-  padding: 0 17px;
-  text-transform: uppercase;
-  font-size: 18px;
-  border: 2px solid $footer_bg;
-  transition: .3s;
-  &:focus, &:hover {
-    text-decoration: none;
-    color: $bright_blue;
-  }
-}
-
-.price-footer {
-  // border: 2px solid #dfe5e8;
-  border-radius: 0 0 12px 12px;
-  border-top: none;
-  padding: 12px 0;
-  text-align: center;
-  position: absolute;
-  bottom: 5px;
-  right: 50%;
-  margin-right: -60px;
-}
-
-.price-value {
-  border-color: $white;
 }
 
 @media screen and (max-width: $screen-sm) {
@@ -942,14 +549,6 @@ h1.text-muted {
   }
 }
 
-.carousel-replacment {
-  background: $bright_blue;
-  color: $white;
-  .container {
-    padding: 0;
-  }
-}
-
 .navbar-collapse {
   padding-left: 0;
   padding-right: 0;
@@ -1011,10 +610,6 @@ body {
     width: 100%;
 }
 
-.price-cost.custom {
-  font-size: 32px;
-}
-
 .pricing .col-flex {
   padding-left: 0;
   padding-right: 0;
@@ -1062,8 +657,8 @@ body {
 .marketing-option-info {
   position: absolute;
   bottom: 5px;
-  right: 20px;
-  left: 20px;
+  right: 25px;
+  left: 25px;
   z-index: 20;
 }
 
@@ -1077,9 +672,173 @@ body {
   }
 }
 
+.no-padding-left {
+  padding-left: 0;
+}
+
+.no-right-padding {
+  padding-right: 0;
+}
+
+// Jumbotron
+.jumbotron {
+  padding: 110px 0;
+  text-align: center;
+  background-image: url(../images/hero-home.png);
+  background-color: transparent;
+  color: $white;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 0;
+  text-align: left;
+  &.jumbotron-learning {
+    background-image: url(../images/hero-learning.png);
+  }
+  &.jumbotron-recuiting {
+    background-image: url(../images/hero-recruiting.png);
+  }
+  &.jumbotron-innovation {
+    background-image: url(../images/hero-innovation.png);
+  }
+  .jumbotron-title {
+    font-size: 56px;
+    color: $footer_bg;
+    position: relative;
+    margin-top: 0;
+    color: $white;
+    margin-bottom: 40px;
+  }
+  h2 {
+    margin-top: 0;
+    margin-bottom: 25px; 
+  }
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
+  .cbtn {
+    padding: 13px 35px;
+    text-transform: uppercase;
+  }
+  .row-flex {
+    align-items: center;
+  }
+  small {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+  p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .cbtn {
+    margin-bottom: 20px;
+  }
+  footer {
+    position: static;
+  }
+  &:after,
+  .jumbotron-inner {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  .jumbotron-inner {
+    position: relative;
+    z-index: 3;
+  }
+  .col-flex {
+    text-align: center;
+    width: 100%; 
+  }
+  .lead {
+    margin-bottom: 40px;
+  }
+  .cbtn.btn-blue {
+    margin-bottom: 40px;
+    &:focus, &:hover {
+      background: $footer_bg;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}
+// Jumbotron
+
+// Tiers
+.blue-tier {
+  padding: 80px 0;
+  p {
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+  }
+  .cbtn {
+    padding: 10px 70px;
+    text-transform: uppercase;
+  }
+}
+
+.dark-tier {
+  color: $white;
+  background: $footer_bg;
+  padding: 120px 0;
+  font-size: 32px;
+  text-align: center;
+}
+
+.white-tier {
+  color: #49515D;
+  background: $white;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 90px 0 100px 0;
+}
+
+.white-tier-title {
+  padding-bottom: 60px;
+}
+
+.white-tier-info {
+  padding-bottom: 70px;
+}
+// Tiers
+
+// Carousel
+.carousel-col {
+  h4 {
+    margin-top: 0;
+  }
+}
+
+.carousel-col-footer {
+  background: $white;
+  border-radius: 0 0 5px 5px;
+  margin-top: -3px;
+  padding-top: 13px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
 .carousel-indicators {
-  bottom: -50px;
   left: 20px;
+  bottom: -40px;
+  &.active {
+    background-color: $indicator_active;
+    border-color: $indicator_active;
+  }
+  li {
+    background-color: $carousel_indicator;
+    border-color: $carousel_indicator;
+  }
+}
+
+.carousel-control {
+  color: $indicator_active;
+  &:focus, &:hover {
+    color: $indicator_active;
+  }
 }
 
 .left.carousel-control {
@@ -1093,58 +852,187 @@ body {
   background-image: none;
   width: 30px;
 }
+// Carousel
 
-.no-padding-left {
-  padding-left: 0;
+// Pricing
+.pricing-container {
+  max-width: 1600px;
 }
 
-.no-right-padding {
-  padding-right: 0;
+.pricing-row {
+  padding-bottom: 100px;
 }
 
-.peer-connect-title {
-  color: $white;
-  background: $footer_bg;
-  padding: 120px 0;
-  font-size: 32px;
-  text-align: center;
+.pricing-main-title {
+  color: $footer_bg;
+  padding: 80px 0 50px 0;
+  text-transform: capitalize;
 }
 
-.carousel-control {
-  color: $indicator_active;
-  &:focus, &:hover {
-    color: $indicator_active;
+.pricing-box {
+  padding: 40px 20px;
+  border: 1px solid #9B9B9B;
+  .cbtn {
+    min-width: 85%;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 }
 
-.jumbotron.jumbotron-recuiting .lead, .jumbotron.jumbotron-innovation .lead {
-  font-size: 40px;
-  font-family: "Hurme_HurmeGeometricSans1_SemiBold", sans-serif;
+.pricing-header {
+  min-height: 300px;
 }
 
-h1.jumbotron-title {
-  margin-bottom: 40px;
+.pricing-title {
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #49515D;
+  line-height: 20px;
 }
 
-.jumbotron .lead {
-  margin-bottom: 40px;
+.pricing-top-margin {
+  margin-top: 25px;
 }
 
-.jumbotron .cbtn.btn-blue {
-  margin-bottom: 40px;
+.pricing-top-txt {
+  color: #302C2C;
+  min-height: 70px;
 }
 
-.jumbotron .cbtn.btn-blue {
-  &:focus, &:hover {
-    background: $footer_bg;
-    color: $white;
-    text-decoration: none;
+.pricing-value {
+  min-height: 100px;
+  margin-bottom: 20px;
+}
+
+.pricing-value-sign {
+  position: relative;
+  top: -30px;
+  margin-top: -30px;
+}
+
+.pricing-value-txt {
+  padding-top: 65px;
+  display: inline-block;
+  &, &:focus, &:hover {
+    color: #ABABAB;
   }
 }
 
-.find-us .find-us-regular {
-  font-size: 16px;
+.pricing-pale {
+  color: #4A4A4A;
 }
+
+.pricing-features {
+  padding-left: 23px;
+  list-style: none;
+  li {
+    position: relative;
+    padding-bottom: 25px;
+    &:before {
+      content: " ";
+      width: 5px;
+      height: 5px;
+      position: absolute;
+      background: $white;
+      border-radius: 50%;
+      top: 9px;
+      left: -13px;
+      // border: 5px solid #9B9B9B;
+      box-shadow: 0 0 0 3px #9B9B9B;
+    }
+  }
+}
+
+.pricing-btn {
+  margin: 30px 0;
+}
+
+.pricing-middle-margin {
+  @media screen and (max-width: $screen-md) {
+    margin-top: 25px;
+  }
+}
+
+.pricing-box.highlighted {
+  position: relative;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,.4);
+  &:before {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 14px;
+    background: $bright_blue;
+    box-shadow: 0 0 0 1px $bright_blue;
+  }
+}
+
+.pricing-info {
+  padding-bottom: 60px;
+}
+
+@media screen and (min-width: 991px) and (max-width: 1345px) {
+  .pricing-header {
+    min-height: 366px;
+  }
+  .cbtn.btn-dark.pricing-btn {
+    width: 100%;
+    font-size: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+// Pricing
+
+// Contact
+.feedback-title {
+  @extend .pricing-main-title;
+}
+
+.feedback-info {
+  padding-bottom: 70px;
+}
+
+.contact-team {
+  padding-bottom: 120px;
+}
+
+.contact-team-mail {
+  &, &:focus, &:hover {
+    color: #373A3C;  
+  }
+}
+
+.contact-team-img-wrap {
+  max-width: 250px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.contact-team-pale-txt {
+  color: $pale_gray;
+  display: block;
+  padding: 15px 0;
+}
+
+.contact-form-row {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.contact-from-textarea {
+  padding-top: 60px;
+}
+
+.contact .cbtn {
+  min-width: 165px;
+}
+
+.contact-form-heading {
+  margin-bottom: 40px;
+}
+// Contact
 
 .get-in-touch {
   background: #e4e4e4;
@@ -1158,22 +1046,6 @@ h1.jumbotron-title {
 
 .get-in-touch-partners {
   padding: 80px 0;
-}
-
-.no-left-15 {
-  padding-left: 0;
-}
-
-.no-right-15 {
-  padding-right: 0;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-left {
-  text-align: left;
 }
 
 .get-in-touch .row-flex {
@@ -1214,3 +1086,9 @@ h1.jumbotron-title {
 .innovation-quote-author {
   color: $bright_gray;
 }
+
+// Contact
+.contact-team img {
+  border-radius: 50%;
+}
+// Contact

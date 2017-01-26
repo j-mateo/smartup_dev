@@ -1,0 +1,146 @@
+@font-face {
+  font-family: "Hurme_HurmeGeometricSans1_SemiBold";
+  src: url("../fonts/Hurme_HurmeGeometricSans1_SemiBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Hurme - HurmeGeometricSans1 Regular";
+  src: url("../fonts/Hurme - HurmeGeometricSans1 Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Hurme - HurmeGeometricSans1 Bold";
+  src: url("../fonts/Hurme - HurmeGeometricSans1 Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Hurme - HurmeGeometricSans1 Light";
+  src: url("../fonts/Hurme - HurmeGeometricSans1 Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Hurme - HurmeGeometricSans2 SemiBold";
+  src: url("../fonts/Hurme - HurmeGeometricSans2 SemiBold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Hurme - HurmeGeometricSans2 Regular";
+  src: url("../fonts/Hurme - HurmeGeometricSans2 Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Hurme - HurmeGeometricSans2 Light";
+  src: url("../fonts/Hurme - HurmeGeometricSans2 Light.otf") format("opentype");
+}
+
+// Typography
+body {
+  font-family: "Hurme - HurmeGeometricSans2 Regular", sans-serif;
+}
+
+.jumbotron.jumbotron-recuiting .lead,
+.jumbotron.jumbotron-innovation .lead {
+  font-size: 40px;
+  font-family: "Hurme_HurmeGeometricSans1_SemiBold", sans-serif;
+}
+
+.jumbotron h1,
+.jumbotron p.lead,
+.jumbotron small,
+.features h3,
+.price-cost,
+.price-title,
+.order-btn {
+  font-family: "Hurme_HurmeGeometricSans1_SemiBold", sans-serif;
+}
+
+.carousel-col h4 {
+  font-family: "Hurme - HurmeGeometricSans1 Bold", sans-serif;
+}
+
+.marketing-peer p {
+  font-size: 4rem;
+  font-family: "Hurme - HurmeGeometricSans1 Light", sans-serif;;
+}
+
+.price-cost {
+  font-size: 42px;
+  color: $black;
+}
+
+.features h3 {
+  font-size: 4rem;
+  color: $footer_bg;
+}
+
+.features {
+  padding: 140px 0 220px;
+}
+
+.business-item p {
+  font-size: 16px;
+}
+
+.business-item {
+  border-bottom: 1px solid #AEACB2;
+  padding-top: 60px;
+  &.last {
+    border-bottom: none;
+  }
+}
+
+.features-intro {
+  padding: 40px 0 140px 0;
+}
+
+.price-cost.custom {
+  font-size: 32px;
+}
+
+.blue-tier .blue-tier-regular {
+  font-size: 16px;
+}
+
+.pricing-main-title {
+  font-size: 60px;
+}
+
+.pricing-title {
+  font-family: "Hurme - HurmeGeometricSans2 SemiBold", sans-serif;
+  font-size: 16px;
+}
+
+.pricing-value-number {
+  font-size: 100px;
+  line-height: 100px;
+}
+
+.pricing-top-txt,
+.pricing-desc {
+  font-family: "Hurme - HurmeGeometricSans2 Light", sans-serif;
+  font-size: 16px;
+}
+
+.pricing-value-sign {
+  font-size: 40px;
+  line-height: 40px;
+  font-family: "Hurme - HurmeGeometricSans2 Light", sans-serif;
+}
+
+.pricing-value-txt {
+  font-size: 18px;
+}
+
+.feedback-info, .contact-team-mail {
+  font-size: 18px;
+  font-family: "Hurme - HurmeGeometricSans2 SemiBold", sans-serif;
+}
+
+.white-tier-title {
+  font-size: 60px;
+}
+
+.white-tier-info {
+  font-size: 18px;
+}
+// TYpography

@@ -1,0 +1,38 @@
+extends layouts/default
+block content 
+    .container
+        .row
+            .col-xs-12
+                h2.text-center.feedback-title Hi, we're looking forward to getting your team up and running on SmartUp.
+                p.text-center To get started, please tell us little more about you and your company. An experienced member of our team will be in touch to learn how SmartUp can help you.
+    
+    .container
+        .row
+            form.contact-form(method='post', action='#')
+                .col-md-6
+                    .form-group
+                      label(for='get-in-touch-username') Your name*
+                      input#get-in-touch-username.form-control(type='text', name='get-in-touch-username', placeholder='John Doe', required)
+                .col-md-6
+                    .form-group
+                      label(for='get-in-touch-organization-name') Your organization’s name*
+                      input#get-in-touch-organization-name.form-control(type='text', name='get-in-touch-organization-name', placeholder='SmartUp', required)
+                .col-md-4
+                    .form-group
+                      label(for='get-in-touch-email') Your work email*
+                      input#get-in-touch-email.form-control(type='email', name='get-in-touch-email', placeholder='johndoe@', required)
+                .col-md-4
+                    .form-group
+                      label(for='get-in-touch-phone') Your telephone number
+                      input#get-in-touch-phone.form-control(type='tel', name='get-in-touch-phone', placeholder='e.g. +1 555 123 4567')
+                .col-md-4
+                    .form-group
+                      label(for='request-organization-size') Your organization's size?*
+                      select#request-organization-size.form-control(name='request-organization-size', required)
+                        option 1-20 etc…
+                        option 20-40
+                        option 40-100
+                        option 100-1000
+
+                .col-xs-12.text-center
+                    button.cbtn.btn-dark(type='submit') get in touch

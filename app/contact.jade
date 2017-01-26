@@ -1,16 +1,65 @@
 extends layouts/default
 block content 
     .container
-      .row
-        .col-xs-12
-          form.contact-form(method='post', action='#')
-            .form-group
-              label(for='contact-username') Name
-              input#contact-username.form-control(type='text', name='username', placeholder='Enter your name')
-            .form-group
-              label(for='contact-email') Email address
-              input#contact-email.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter your email')
-            .form-group
-              label(for='contact-message') Your message
-              textarea#contact-message.form-control(rows='5')
-            button.btn.btn-default(type='submit') Submit
+        .row
+            .col-xs-12
+                h2.text-center.feedback-title New business enquiries
+                p.text-center.feedback-info If you'd like to understand more about SmartUp and how it can shape how knowledge is shared and how microlearning can help your organization, here are some regional contacts who can help you..
+        .row.contact-team
+            .col-sm-4.text-center
+                .contact-team-img-wrap
+                    img.img-responsive(src='https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.mynbest.com%2Fwp-content%2Fuploads%2F2014%2F08%2Fsquare-team-member-455x455-2-300x300.jpg&f=1', alt='team member')
+                a.contact-team-mail(href="mailto:") Your work email*
+                p.contact-team-pale-txt e.g. johnsmith@acmeltd.com
+                a.cbtn.btn-bright(href="#" class="cbtn") frank@smartup.io
+            .col-sm-4.text-center
+                .contact-team-img-wrap
+                    img.img-responsive(src='https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.mynbest.com%2Fwp-content%2Fuploads%2F2014%2F08%2Fsquare-team-member-455x455-2-300x300.jpg&f=1', alt='team member')
+                a.contact-team-mail(href="mailto:") Your organization's size?*
+                p.contact-team-pale-txt 1-20 etc…
+                a.cbtn.btn-bright(href="#" class="cbtn") frank@smartup.io
+            .col-sm-4.text-center
+                .contact-team-img-wrap
+                    img.img-responsive(src='https://images.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.mynbest.com%2Fwp-content%2Fuploads%2F2014%2F08%2Fsquare-team-member-455x455-2-300x300.jpg&f=1', alt='team member')
+                a.contact-team-mail(href="mailto:") Your telephone number
+                p.contact-team-pale-txt e.g. 1-20 etc…
+                a.cbtn.btn-bright(href="#" class="cbtn") frank@smartup.io
+    
+    section.white-tier.text-center
+        .container
+            .row
+                .col-xs-12
+                    h3.white-tier-title For press enquiries
+                    p.white-tier-info 
+                        | Create, share and exchange interactive content for a learning experience that’s function
+                        | and collaborative. Unlock your own real knowledge and see where it takes you.
+                    a.cbtn.btn-bright(href="#0") david@smartup.io
+    section.white-tier.text-center
+        .container
+            .row
+                .col-xs-12
+                    h3.white-tier-title For careers at SmartUp
+                    p.white-tier-info
+                        | Create, share and exchange interactive content for a learning experience that’s fun
+                        | and collaborative. Unlock your own real knowledge and see where it takes you.
+                    a.cbtn.btn-bright(href="https://smartupio.workable.com/") jobs page
+    
+    .container
+        .row.contact-form-row
+            .col-xs-12
+                h3.contact-form-heading.text-center For all other enquiries, get in touch.
+            form.contact-form(method='post', action='#')
+                .col-md-6
+                    .form-group
+                      label(for='contact-username') Your name*
+                      input#contact-username.form-control(type='text', name='contact-username', placeholder='John Doe', required)
+                .col-md-6
+                    .form-group
+                      label(for='contact-email') Your work email*
+                      input#contact-email.form-control(type='email', name='contact-email', placeholder='e.g. johndoe@acmeltd.com', required)
+                .col-xs-12
+                    .form-group.contact-from-textarea
+                      label(for='contact-message') How can we help you?
+                      textarea#contact-message.form-control(rows='5')
+                .col-xs-12.text-center
+                    button.cbtn.btn-dark(type='submit') get in touch
