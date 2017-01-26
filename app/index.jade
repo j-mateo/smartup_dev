@@ -1,103 +1,26 @@
-doctype html.no-js(lang='')
-head
-    meta(charset='utf-8')
-    |   
-    meta(name='description', content='')
-    |   
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    |   
-    title smartup
-    |   
-    link(rel='apple-touch-icon', href='apple-touch-icon.png')
-    // Place favicon.ico in the root directory
-    // build:css styles/vendor.css
-    // bower:css
-    // endbower
-    // endbuild
-    // build:css styles/main.css
-    link(rel='stylesheet', href='styles/main.css')
-    // endbuild
-    link(rel='stylesheet', href='https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css')
-    // build:js scripts/vendor/modernizr.js
-    script(src='/bower_components/modernizr/modernizr.js')
-    // endbuild
-  body
-    //if lt IE 10
-      p.browserupgrade
-        | You are using an 
-        strong outdated
-        |  browser. Please 
-        a(href='http://browsehappy.com/') upgrade your browser
-        |  to improve your experience.
-    |   
-    header.header
-      .container-fluid
-        .row
-          h1.text-muted
-            a(href='/')
-              img.img-responsive(src='./images/SmartUp_Brand.svg', alt='smartup')
-              span.sr-only smartup
-          |         
-          .nav-wrap.navbar
-            button.navbar-toggle.collapsed.navbar-trigger(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
-              span.sr-only Toggle navigation
-              //
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              i.fa.fa-bars
-            |           
-            #bs-example-navbar-collapse-1.collapse.navbar-collapse
-              .login-box
-                p YOUR COMMUNITY
-                |               
-                .login-btns
-                  a.cbtn.btn-dark(href='#0') create
-                  |                 
-                  a.cbtn.btn-bright.borderless(href='#0') sign in/find
-              |             
-              nav.main-nav
-                ul.nav.pull-right
-                  li.active
-                    a(href='features.html') Features
-                  |                 
-                  li
-                    a(href='pricing.html') Pricing
-                  |                 
-                  li
-                    a(href='#') Blog
-    |   
+extends layouts/default
+block content
     section.jumbotron
       .jumbotron-inner
         .container
           .row-flex
             .col-flex
               h1.jumbotron-title show what you know
-              // <h2>#BeMoreStartUp</h2>
               p.lead
                 | Shared knowledge is power multiplied. Create or join a community and let SmartUp help boost your know-how with fun, engaging content on the topics that matter the most to you. Connect with peers and influential founders to learn new skills,
                 | share insight, gain advice and much more.
-              |             
               a.cbtn.btn-blue(href='#') create a community
-              |             
               footer
                 small
                   a.community-find-link(href='#0') Find your community
                   |  or browse popular content below.
-    //
-      <section class="sub-hero">
-      <div class="container">
-      <h2>featured community</h2>
-      <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h3>
-      </div>
-      </section>
+    
     section.peer-connect-title
       .container
         .row
           .col-xs-12
             p
               | Connect with peers, influencers and thought leaders. Create, learn and share knowledge
-    |   
     section.marketing-options
       .container
         .row
@@ -105,315 +28,166 @@ head
             #myCarousel.carousel.slide(data-ride='carousel', data-interval='false')
               ol.carousel-indicators
                 li.active(data-target='#myCarousel', data-slide-to='0')
-                |               
                 li(data-target='#myCarousel', data-slide-to='1')
-                |               
                 li(data-target='#myCarousel', data-slide-to='2')
-              |             
               a.left.carousel-control(href='#myCarousel', role='button', data-slide='prev')
                 span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
-                |               
                 span.sr-only Previous
-              |             
               a.right.carousel-control(href='#myCarousel', role='button', data-slide='next')
                 span.glyphicon.glyphicon-chevron-right(aria-hidden='true')
-                |               
                 span.sr-only Next
-              |             
               .carousel-inner(role='listbox')
                 .item.active
                   .row.row-flex
                     .col-flex
                       img.img-responsive(src='./images/launch.png')
-                      |                     
                       .marketing-option-info
                         h4 Launch
-                        |                       
                         p
                           | The startup community for entrepreneurs and innovators everywhere. Test and improve your startup knowledge with insights and qiuzzes from top founders, investors and journalists Founders is the original SmartUp community.
-                        |                       
                         a.marketing-option-link(href='#')
                           i.fa.fa-arrow-circle-o-right
                           |  Join
-                    |                   
                     .col-flex.col-flex-4
                       .col-flex
                         img.img-responsive(src='./images/home-1.png')
-                        |                       
                         .marketing-option-info
                           p Facebook controversy, the flying car, and VR Breakthrough
-                          |                         
                           a.marketing-option-link(href='#')
                             i.fa.fa-arrow-circle-o-right
                             |  Read
-                      |                     
                       .col-flex
                         img.img-responsive(src='./images/home-2.png')
-                        |                       
                         .marketing-option-info
                           p Robocall strike force, nkorean V.O.D and Space-Starbucks?
-                          |                         
                           a.marketing-option-link(href='#')
                             i.fa.fa-arrow-circle-o-right
                             |  Read
-                      |                     
                       .col-flex
                         img.img-responsive(src='./images/home-3.png')
-                        |                       
                         .marketing-option-info
                           p How wearable tech will track human emotion
-                          |                         
                           a.marketing-option-link(href='#')
                             i.fa.fa-arrow-circle-o-right
                             |  Read
-                      |                     
                       .col-flex
                         img.img-responsive(src='./images/home-4.png')
-                        |                       
                         .marketing-option-info
                           p Snapchat&apos;s$1B+, PayPal app kills, tinder left-swipe rivals
-                          |                         
                           a.marketing-option-link(href='#')
                             i.fa.fa-arrow-circle-o-right
                             |  Read
-                |                
                 .item
                   .row.row-flex
                     .col-flex
                       img.img-responsive(src='./images/launch.png')
-                      |                     
                       .marketing-option-info
                         h4 Launch
-                        |                       
                         p
                           | The startup community for entrepreneurs and innovators everywhere. Test and improve your startup knowledge with insights and qiuzzes from top founders, investors and journalists Founders is the original SmartUp community.
-                        |                       
                         a.marketing-option-link(href='#')
                           i.fa.fa-arrow-circle-o-right
                           |  Join
-                    |                   
                     .col-flex.col-flex-4
                       .col-flex
                         img.img-responsive(src='./images/home-1.png')
-                        |                       
                         .marketing-option-info
                           p Facebook controversy, the flying car, and VR Breakthrough
-                          |                         
                           a.marketing-option-link(href='#')
                             i.fa.fa-arrow-circle-o-right
                             |  Read
-                      |                     
                       .col-flex
                         img.img-responsive(src='./images/home-2.png')
-                        |                       
                         .marketing-option-info
                           p Robocall strike force, nkorean V.O.D and Space-Starbucks?
-                          |                         
                           a.marketing-option-link(href='#')
                             i.fa.fa-arrow-circle-o-right
                             |  Read
-                      |                     
                       .col-flex
                         img.img-responsive(src='./images/home-3.png')
-                        |                       
                         .marketing-option-info
                           p How wearable tech will track human emotion
-                          |                         
                           a.marketing-option-link(href='#')
                             i.fa.fa-arrow-circle-o-right
                             |  Read
-                      |                     
                       .col-flex
                         img.img-responsive(src='./images/home-4.png')
-                        |                       
                         .marketing-option-info
                           p Snapchat&apos;s$1B+, PayPal app kills, tinder left-swipe rivals
-                          |                         
                           a.marketing-option-link(href='#')
                             i.fa.fa-arrow-circle-o-right
                             |  Read
-                |                
                 .item
                   .row.row-flex
                     .col-flex
                       img.img-responsive(src='./images/launch.png')
-                      |                     
                       .marketing-option-info
                         h4 Launch
-                        |                       
                         p
                           | The startup community for entrepreneurs and innovators everywhere. Test and improve your startup knowledge with insights and qiuzzes from top founders, investors and journalists Founders is the original SmartUp community.
-                        |                       
                         a.marketing-option-link(href='#')
                           i.fa.fa-arrow-circle-o-right
                           |  Join
-                    |                   
                     .col-flex.col-flex-4
                       .col-flex
                         img.img-responsive(src='./images/home-1.png')
-                        |                       
                         .marketing-option-info
                           p Facebook controversy, the flying car, and VR Breakthrough
                           |                         
                           a.marketing-option-link(href='#')
                             i.fa.fa-arrow-circle-o-right
                             |  Read
-                      |                     
                       .col-flex
                         img.img-responsive(src='./images/home-2.png')
-                        |                       
                         .marketing-option-info
                           p Robocall strike force, nkorean V.O.D and Space-Starbucks?
                           |                         
                           a.marketing-option-link(href='#')
                             i.fa.fa-arrow-circle-o-right
                             |  Read
-                      |                     
                       .col-flex
                         img.img-responsive(src='./images/home-3.png')
-                        |                       
                         .marketing-option-info
                           p How wearable tech will track human emotion
                           |                         
                           a.marketing-option-link(href='#')
                             i.fa.fa-arrow-circle-o-right
                             |  Read
-                      |                     
                       .col-flex
                         img.img-responsive(src='./images/home-4.png')
-                        |                       
                         .marketing-option-info
                           p Snapchat&apos;s$1B+, PayPal app kills, tinder left-swipe rivals
-                          |                         
                           a.marketing-option-link(href='#')
                             i.fa.fa-arrow-circle-o-right
                             |  Read
-    |   
     section.features.container
       h3.text-center
         | Unlock your knowledge.
         br
         | Unleash your potential.
-      |     
       p.text-center.features-intro
         | Create, share and exchange interactive content for a learning experience that&rsquo;s fun
         br
         |  and collaborative. Unlock your own real knowledge and see where it takes you.
-      |     
       .col-md-4.col-xs-12
         .col-xs-4
           img.img-responsive(src='./images/eye.svg', alt='eye')
-        |       
         .col-xs-8
           p.feature-desc
             | SmartUp reveals the passions, interests, skills and talents hidden by traditional organization structures, silos and hierarchies.
-      |     
       .col-md-4.col-xs-12
         .col-xs-4
           img.img-responsive(src='./images/peer.svg', alt='eye')
-        |       
         .col-xs-8
           p.feature-desc
             | Our peer-to-peer knowledge platform democratizes the creation and consumption of knowledge throughout your business.
-      |     
       .col-md-4.col-xs-12
         .col-xs-4
           img.img-responsive(src='./images/phone.svg', alt='phone')
-        |       
         .col-xs-8
           p.feature-desc
             | SmartUp was created for the mobile generation&mdash;entrepreneurs, millennials and innovators. Inspired by microlearning, we&rsquo;ve evolved for the enterprise.
-    |   
     section.find-us
       .container
         p How can SmartUp inspire success in your life and business?
-        |       
         a.cbtn.btn-dark(href='#0') find out
-    |   
-    footer.footer
-      .container
-        .row
-          .col-xs-6
-            small.copy
-              span SmartUp.io, LTD &copy; 2017
-              |  
-              span
-                a(href='privacy.html') Privacy
-              |  
-              span
-                a(href='copyright.html') Copyright
-              |  
-              span
-                a(href='terms_and_services.html') Terms of Service
-              span
-                a(href='#0') teams
-              span
-                a(href='contact.html') contact
-          |         
-          .col-xs-6
-            ul.social
-              li
-                a(href='#0')
-                  i.fa.fa-facebook
-              |             
-              li
-                a(href='#0')
-                  i.fa.fa-twitter
-              |             
-              li
-                a(href='#0')
-                  i.fa.fa-instagram
-              |             
-              li
-                a(href='#0')
-                  i.fa.fa-linkedin
-    // Google Analytics: change UA-XXXXX-X to be your site's ID.
-    script.
-      (function(b, o, i, l, e, r) {
-      b.GoogleAnalyticsObject = l;
-      b[l] || (b[l] =
-      function() {
-      (b[l].q = b[l].q || []).push(arguments)
-      });
-      b[l].l = +new Date;
-      e = o.createElement(i);
-      r = o.getElementsByTagName(i)[0];
-      e.src = 'https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e, r)
-      }(window, document, 'script', 'ga'));
-      ga('create', 'UA-XXXXX-X');
-      ga('send', 'pageview');
-    // build:js scripts/vendor.js
-    // bower:js
-    script(src='/bower_components/jquery/dist/jquery.js')
-    // endbower
-    // endbuild
-    // build:js scripts/plugins.js
-    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js')
-    |   
-    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js')
-    |   
-    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js')
-    |   
-    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js')
-    |   
-    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js')
-    |   
-    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js')
-    |   
-    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js')
-    |   
-    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js')
-    |   
-    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js')
-    |   
-    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js')
-    |   
-    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js')
-    |   
-    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js')
-    // endbuild
-    script(src='https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js')
-    // build:js scripts/main.js
-    script(src='scripts/main.js')
-    // endbuild

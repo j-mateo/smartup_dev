@@ -1,0 +1,16 @@
+extends layouts/default
+block content 
+    .container
+      .row
+        .col-xs-12
+          form.contact-form(method='post', action='#')
+            .form-group
+              label(for='contact-username') Name
+              input#contact-username.form-control(type='text', name='username', placeholder='Enter your name')
+            .form-group
+              label(for='contact-email') Email address
+              input#contact-email.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter your email')
+            .form-group
+              label(for='contact-message') Your message
+              textarea#contact-message.form-control(rows='5')
+            button.btn.btn-default(type='submit') Submit
