@@ -6,7 +6,7 @@ console.log(`%c ________________________________________
             (__)\\       )\\/\\
                 ||----w |
                 ||     ||`, "font-family:monospace")
-
+var form_email = "jmateo6@gmail.com"; // replace this with email where forms should be sent
 //=======================================================
 // Video Section
 //=======================================================
@@ -53,7 +53,7 @@ $(document).ready(function() {
     $(document).ready(function() {
       var postToFormSpree = function(data, cb) {
         $.ajax({
-          url: "https://formspree.io/jmateo6@gmail.com",
+          url: "https://formspree.io/" + form_email,
           method: "POST",
           data: data,
           dataType: "json",
