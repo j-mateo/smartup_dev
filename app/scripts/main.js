@@ -48,5 +48,65 @@ $(document).ready(function() {
         //     e.preventDefault();
         //     vid1.play();
         // });
+
     }
+    $(document).ready(function() {
+      var postToFormSpree = function(data, cb) {
+        $.ajax({
+          url: "https://formspree.io/jmateo6@gmail.com",
+          method: "POST",
+          data: data,
+          dataType: "json",
+          success: function(){
+            cb.success()
+            console.log("Success")
+          },
+          error: function() {
+            cb.error()
+            console.log("Error")
+          }
+        });
+      }
+
+      $("form").submit(function(e){
+        var $form = $(this);
+        var $submitButton = $form.find(':button');
+        e.preventDefault();
+        var buttonLabel = $submitButton.html();
+        $submitButton.html('Sending...');
+        $submitButton.attr('disabled', 'disabled');
+
+        var $inputs = $(this).find(':input');
+        var values = {};
+        var errors = false;
+        $inputs.each(function(){
+          if($(this).prop('required') && $(this).val() === '') {
+            // required do something about it.
+            errors = true;
+            $(this).parent().addClass('has-error')
+          } else {
+            $(this).parent().removeClass('has-error')
+          }
+          if(this.name)
+            values[this.name] = $(this).val();
+        });
+        if (errors) {
+          return;
+        }
+
+        postToFormSpree(values, {
+          success: function() {
+            $submitButton.html(buttonLabel)
+            $submitButton.removeAttr('disabled')
+            location.href = $form.data('redirect') || '/'
+          },
+          error: function() {
+            $submitButton.html(buttonLabel)
+            $submitButton.removeAttr('disabled')
+            alert("Error submitting form. Please try again")
+          }
+        });
+      })
+    });
+
 });

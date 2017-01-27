@@ -1,5 +1,5 @@
 extends layouts/default
-block content 
+block content
     .container
         .row
             .col-xs-12
@@ -24,13 +24,13 @@ block content
                 a.contact-team-mail(href="mailto:") Your telephone number
                 p.contact-team-pale-txt e.g. 1-20 etc…
                 a.cbtn.btn-bright(href="#" class="cbtn") frank@smartup.io
-    
+
     section.white-tier.text-center
         .container
             .row
                 .col-xs-12
                     h3.white-tier-title For press enquiries
-                    p.white-tier-info 
+                    p.white-tier-info
                         | Create, share and exchange interactive content for a learning experience that’s function
                         | and collaborative. Unlock your own real knowledge and see where it takes you.
                     a.cbtn.btn-bright(href="#0") david@smartup.io
@@ -43,16 +43,17 @@ block content
                         | Create, share and exchange interactive content for a learning experience that’s fun
                         | and collaborative. Unlock your own real knowledge and see where it takes you.
                     a.cbtn.btn-bright(href="https://smartupio.workable.com/") jobs page
-    
+
     .container
         .row.contact-form-row
             .col-xs-12
                 h3.contact-form-heading.text-center For all other enquiries, get in touch.
-            form.contact-form(method='post', action='#')
+            form#contact-form.contact-form(method='post', action='#', data-redirect='/')
+                input#form-name(type='hidden', name='form-name', value='contact-form')
                 .col-md-6
                     .form-group
-                      label(for='contact-username') Your name*
-                      input#contact-username.form-control(type='text', name='contact-username', placeholder='John Doe', required)
+                      label(for='contact-name') Your name*
+                      input#contact-name.form-control(type='text', name='contact-name', placeholder='John Doe', required)
                 .col-md-6
                     .form-group
                       label(for='contact-email') Your work email*
@@ -60,6 +61,6 @@ block content
                 .col-xs-12
                     .form-group.contact-from-textarea
                       label(for='contact-message') How can we help you?
-                      textarea#contact-message.form-control(rows='5')
+                      textarea#contact-message.form-control(rows='5', name='contact-message')
                 .col-xs-12.text-center
-                    button.cbtn.btn-dark(type='submit') get in touch
+                    button#submitContact.cbtn.btn-dark(type='submit') get in touch

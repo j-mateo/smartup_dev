@@ -1,11 +1,12 @@
 extends layouts/default
-block content 
+block content
     .container
         .row
             .col-xs-12
                 h2.text-center.feedback-title Hi, we're looking forward to getting your team up and running on SmartUp.
                 p.text-center.feedback-info To make your request for a community, please tell us little more about you and your company..
             form.contact-form(method='post', action='#')
+                input(type='hidden', name='form-name', value='request-community')
                 .col-md-6
                     .form-group
                         label(for='reques-username') Your name*

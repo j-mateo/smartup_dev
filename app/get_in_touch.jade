@@ -1,14 +1,15 @@
 extends layouts/default
-block content 
+block content
     .container
         .row
             .col-xs-12
                 h2.text-center.feedback-title Hi, we're looking forward to getting your team up and running on SmartUp.
                 p.text-center To get started, please tell us little more about you and your company. An experienced member of our team will be in touch to learn how SmartUp can help you.
-    
+
     .container
         .row
             form.contact-form(method='post', action='#')
+                input(type='hidden', name='form-name', value='get in touch')
                 .col-md-6
                     .form-group
                       label(for='get-in-touch-username') Your name*
@@ -35,4 +36,4 @@ block content
                         option 100-1000
 
                 .col-xs-12.text-center
-                    button.cbtn.btn-dark(type='submit') get in touch
+                    button#submitContact.cbtn.btn-dark(type='submit') get in touch
